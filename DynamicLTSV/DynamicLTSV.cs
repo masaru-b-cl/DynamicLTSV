@@ -20,7 +20,12 @@ namespace DynamicLTSV
     public DynamicLTSV(string line)
       : this()
     {
-      this.source.Add("label", "text");
+      var items = line.Split('\t');
+      foreach (var item in items)
+      {
+        var elements = item.Split(':');
+        this.source.Add(elements[0], elements[1]);
+      }
     }
 
     public static dynamic ParseLine(string line)
@@ -87,9 +92,7 @@ namespace DynamicLTSV
 
         result = (value == null)
             ? null
-            : type == typeof(DateTime)
-              ? DateTime.ParseExact(value, new[] { "yyyyMMdd", "yyyy/MM/dd", "yyMMdd", "yy/MM/dd" }, null, System.Globalization.DateTimeStyles.None)
-              : Convert.ChangeType(value, binder.Type);
+            : Convert.ChangeType(value, binder.Type);
       }
       catch (FormatException)
       {
