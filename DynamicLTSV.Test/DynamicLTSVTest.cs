@@ -39,6 +39,13 @@ namespace DynamicLTSV.Test
     }
 
     [TestMethod]
+    public void 未定義のラベルへのアクセス()
+    {
+      var result = DynamicLTSV.ParseLine("");
+      ((string)result.key).IsNull();
+    }
+
+    [TestMethod]
     public void 複数行のパース()
     {
       IEnumerable<dynamic> result = DynamicLTSV.Parse(@"label:text
