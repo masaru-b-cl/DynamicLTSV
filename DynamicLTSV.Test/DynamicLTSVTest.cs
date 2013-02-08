@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
-namespace DynamicLTSV.Test
+namespace DynamicLTSVTest
 {
   [TestClass]
   public class DynamicLTSVTest
@@ -57,7 +58,6 @@ namespace DynamicLTSV.Test
     public void 複数行のパース()
     {
       IEnumerable<dynamic> result = DynamicLTSV.Parse(@"label:text
-
 hoge:fuga");
       {
         var item = result.First();
@@ -66,6 +66,22 @@ hoge:fuga");
       {
         var item = result.Last();
         ((string)item.hoge).Is("fuga");
+      }
+    }
+
+    [TestMethod]
+    public void 空行を含む複数行のパース()
+    {
+      IEnumerable<dynamic> result = DynamicLTSV.Parse(@"label:text
+
+hoge:fuga");
+      {
+        var item = result.First();
+        ((string)item.label).Is("text");
+      }
+      {
+        var item = result.Last();
+        ((string)item.label).Is("text");
       }
     }
 

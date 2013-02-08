@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DynamicLTSV
+namespace System.Text
 {
   public class DynamicLTSV : DynamicObject
   {
@@ -75,6 +75,7 @@ namespace DynamicLTSV
     public static IEnumerable<dynamic> Parse(string lines)
     {
       return lines.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
+        .TakeWhile(line => !String.IsNullOrEmpty(line))
         .Select(line => new DynamicLTSV(line));
     }
   }
