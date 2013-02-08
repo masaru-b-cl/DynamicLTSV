@@ -85,6 +85,14 @@ hoge:fuga");
       }
     }
 
-    
+    [TestMethod]
+    public void LTSVレコードの作成()
+    {
+      var ltsv = DynamicLTSV.Create();
+      ltsv(hoge: "fuga", bar: "baz");
+
+      string line = ltsv.ToString();
+      line.Is("hoge:fuga\tbar:baz");
+    }
   }
 }

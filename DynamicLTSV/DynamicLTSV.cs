@@ -58,6 +58,19 @@ namespace System.Text
       return true;
     }
 
+    public override bool TryInvoke(InvokeBinder binder, object[] args, out object result)
+    {
+      source.Clear();
+      foreach (var item in binder.CallInfo.ArgumentNames.Zip(args, (key, value) => new { key, value }))
+      {
+        source.Add(item.key, item.value.ToString());
+      }
+
+      result = this;
+      return true;
+    }
+
+
     public override bool TryConvert(ConvertBinder binder, out object result)
     {
       if (binder.Type != typeof(string))
@@ -77,6 +90,16 @@ namespace System.Text
       return lines.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
         .TakeWhile(line => !String.IsNullOrEmpty(line))
         .Select(line => new DynamicLTSV(line));
+    }
+
+    public static dynamic Create()
+    {
+      return new DynamicLTSV();
+    }
+
+    public override string ToString()
+    {
+      return string.Join("\t", source.Cast<string>().Select(key => key + ":" + source[key]));
     }
   }
 
