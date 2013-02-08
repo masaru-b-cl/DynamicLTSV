@@ -33,9 +33,16 @@ namespace DynamicLTSV.Test
     }
 
     [TestMethod]
+    public void 空行のパース()
+    {
+      DynamicLTSV.ParseLine("");
+    }
+
+    [TestMethod]
     public void 複数行のパース()
     {
       IEnumerable<dynamic> result = DynamicLTSV.Parse(@"label:text
+
 hoge:fuga");
       {
         var item = result.First();

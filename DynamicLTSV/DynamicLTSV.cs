@@ -20,6 +20,7 @@ namespace DynamicLTSV
     public DynamicLTSV(string line)
       : this()
     {
+      if (String.IsNullOrEmpty(line)) return;
       var record = line;
       if (record.EndsWith("\n"))
       {
