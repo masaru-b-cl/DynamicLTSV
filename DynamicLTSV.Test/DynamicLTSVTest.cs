@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace DynamicLTSV.Test
 {
@@ -29,5 +31,22 @@ namespace DynamicLTSV.Test
       string label = result.label;
       label.Is("text:1");
     }
+
+    [TestMethod]
+    public void 複数行のパース()
+    {
+      IEnumerable<dynamic> result = DynamicLTSV.Parse(@"label:text
+hoge:fuga");
+      {
+        var item = result.First();
+        ((string)item.label).Is("text");
+      }
+      {
+        var item = result.Last();
+        ((string)item.hoge).Is("fuga");
+      }
+    }
+
+    
   }
 }

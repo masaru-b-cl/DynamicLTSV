@@ -70,6 +70,12 @@ namespace DynamicLTSV
         return true;
       }
     }
+
+    public static IEnumerable<dynamic> Parse(string lines)
+    {
+      return lines.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None)
+        .Select(line => new DynamicLTSV(line));
+    }
   }
 
   class StringMember : DynamicObject
