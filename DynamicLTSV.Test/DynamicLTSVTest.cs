@@ -33,6 +33,14 @@ namespace DynamicLTSV.Test
     }
 
     [TestMethod]
+    public void 空の値のパース()
+    {
+      dynamic result = DynamicLTSV.ParseLine("label:");
+      string label = result.label;
+      label.Is("");
+    }
+
+    [TestMethod]
     public void 空行のパース()
     {
       DynamicLTSV.ParseLine("");
