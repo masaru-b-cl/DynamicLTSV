@@ -20,7 +20,16 @@ namespace DynamicLTSV
     public DynamicLTSV(string line)
       : this()
     {
-      var items = line.Split('\t');
+      var record = line;
+      if (record.EndsWith("\n"))
+      {
+        record = record.TrimEnd('\n');
+      }
+      if (record.EndsWith("\r"))
+      {
+        record = record.TrimEnd('\r');
+      }
+      var items = record.Split('\t');
       foreach (var item in items)
       {
         var pair = CreatePair(item);

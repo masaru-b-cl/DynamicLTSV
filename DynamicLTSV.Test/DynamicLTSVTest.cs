@@ -15,6 +15,14 @@ namespace DynamicLTSV.Test
     }
 
     [TestMethod]
+    public void 複数ペアのパース()
+    {
+      dynamic result = DynamicLTSV.ParseLine("label:text\thoge:fuga\r\n");
+      ((string)result.label).Is("text");
+      ((string)result.hoge).Is("fuga");
+    }
+
+    [TestMethod]
     public void コロンを含む値のパース()
     {
       dynamic result = DynamicLTSV.ParseLine("label:text:1");
