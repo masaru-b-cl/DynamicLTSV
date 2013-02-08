@@ -23,9 +23,17 @@ namespace DynamicLTSV
       var items = line.Split('\t');
       foreach (var item in items)
       {
-        var elements = item.Split(':');
-        this.source.Add(elements[0], elements[1]);
+        var pair = CreatePair(item);
+        this.source.Add(pair.Key, pair.Value);
       }
+    }
+
+    private static KeyValuePair<string, string> CreatePair(string item)
+    {
+      var collonIndex = item.IndexOf(':');
+      string key = item.Substring(0, collonIndex);
+      string value = item.Substring(collonIndex + 1);
+      return new KeyValuePair<String, String>(key, value);
     }
 
     public static dynamic ParseLine(string line)
