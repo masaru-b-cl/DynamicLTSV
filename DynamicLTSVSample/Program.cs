@@ -26,6 +26,10 @@ bar:baz
       var ltsv = DynamicLTSV.Create();
       ltsv(hoge: "fuga", bar: "baz");
       Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
+
+      // convert to LTSV string
+      var source = new { hoge = "fuga", bar = "baz" };
+      Console.WriteLine(source.ToLTSVString()); // hoge:fuga\tbar:baz
     }
   }
 }

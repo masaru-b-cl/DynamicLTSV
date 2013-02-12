@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * DynamicLTSV
+ * 
+ * dynamic LTSV parser for C#.
+ * 
+ * v1.1.0
+ * 
+ * release note:
+ * 2013/02/09 v1.0.0  first release
+ * 2013/02/13 v1.1.0  add ToLTSVString method
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Dynamic;
@@ -156,4 +168,13 @@ namespace System.Text
     }
   }
 
+  public static class LtsvExtensions
+  {
+    public static string ToLTSVString(this object obj){
+      return String.Join("\t", obj.GetType().GetProperties()
+        .Where(x => x.CanRead)
+        .Select(pi => pi.Name + ":" + pi.GetValue(obj))
+        );
+    }
+  }
 }

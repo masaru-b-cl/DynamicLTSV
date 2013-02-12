@@ -94,5 +94,12 @@ hoge:fuga");
       string line = ltsv.ToString();
       line.Is("hoge:fuga\tbar:baz");
     }
+
+    [TestMethod]
+    public void LTSVへの変換()
+    {
+      var ltsv = new { hoge = "fuga", bar = "baz" }.ToLTSVString();
+      ltsv.Is("hoge:fuga\tbar:baz");
+    }
   }
 }
