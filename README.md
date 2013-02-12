@@ -1,25 +1,34 @@
 # DynamicLTSV
 dynamic LTSV parser for C#. (inspired by [Text::LTSV](https://github.com/naoya/perl-Text-LTSV).)
 
+## Install
+copy "DynamicLTSV.cs" file to your project. or install package using NuGet.
+
+    PM> Install-Package DynamicLTSV
+
+ref. [DynamicLTSV - NuGet Gallery](https://nuget.org/packages/DynamicLTSV/)
+
 ## Usage
-### import
+reffer to "DynamicLTSVSample\Program.cs" file.
+
+### Import
 
     using System.Text;
 
-### parse LTSV line
+### Parse LTSV line
 
     var line = DynamicLTSV.ParseLine("hoge:foo\tbar:baz\n");
     Console.WriteLine(line.hoge); // foo
     Console.WriteLine(line.bar);  // baz
 
-### parse LTSV lines
+### Parse LTSV lines
     var lines = DynamicLTSV.Parse(@"hoge:foo
     bar:baz
     ");
     Console.WriteLine(lines.First().hoge);  // foo
     Console.WriteLine(lines.Last().bar);  // baz
 
-### create LTSV line ( and convert to string)
+### Create LTSV line ( and convert to string)
 
     var ltsv = DynamicLTSV.Create();
     ltsv(hoge: "fuga", bar: "baz");
