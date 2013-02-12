@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DynamicLTSV</id>
+    <version>1.0.0</version>
+    <title>DynamicLTSV</title>
+    <authors>TAKANO Sho - @masaru_b_cl</authors>
+    <owners>TAKANO Sho - @masaru_b_cl</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dynamic LTSV parser for C#.</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/masaru-b-cl/DynamicLTSV</projectUrl>
+    <tags>LTSV C#</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="..\DynamicLTSV\DynamicLTSV.cs" target="Content\" />
+  </files>
+</package>

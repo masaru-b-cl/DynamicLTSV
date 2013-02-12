@@ -12,6 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{0D59C586-F93
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{5EED4701-C445-4A05-8C04-4EC157F56165}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet\DynamicLTSV.nuspec = NuGet\DynamicLTSV.nuspec
+		NuGet\pack.bat = NuGet\pack.bat
+		NuGet\push.bat = NuGet\push.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
