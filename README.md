@@ -34,6 +34,11 @@ reffer to "DynamicLTSVSample\Program.cs" file.
     ltsv(hoge: "fuga", bar: "baz");
     Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
 
+### Convert to LTSV string
+
+    var source = new { hoge = "fuga", bar = "baz" };
+    Console.WriteLine(source.ToLTSVString()); // hoge:fuga\tbar:baz
+
 ## Description
 Labeled Tab-separated Values (LTSV) format is a variant of Tab-separated Values (TSV). Each record in a LTSV file is represented as a single line. Each field is separated by TAB and has a label and a value. The label and the value have been separated by ':'.
 
