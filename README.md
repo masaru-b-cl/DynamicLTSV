@@ -13,7 +13,7 @@ reffer to "DynamicLTSVSample\Program.cs" file.
 
 ### Import
 
-    using System.Text;
+    using LTSV;
 
 ### Parse LTSV line
 

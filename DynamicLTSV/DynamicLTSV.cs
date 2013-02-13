@@ -3,11 +3,12 @@
  * 
  * dynamic LTSV parser for C#.
  * 
- * v1.1.0
+ * v1.2.0
  * 
  * release note:
  * 2013/02/09 v1.0.0  first release
  * 2013/02/13 v1.1.0  add ToLTSVString method
+ * 2013/02/14 v1.2.0  change root namespace
  */
 
 using System;
@@ -15,10 +16,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Dynamic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace System.Text
+namespace LTSV
 {
   public class DynamicLTSV : DynamicObject
   {
