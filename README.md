@@ -101,3 +101,11 @@ TAKANO Sho - [@masaru\_b\_cl](https://twitter.com/masaru_b_cl/)
     
     D. Above three clauses are applied both to source and binary
       form of this software.
+
+## Release notes
+* 2013/02/09 v1.0.0  first release
+* 2013/02/13 v1.1.0  add ToLTSVString method
+* 2013/02/14 v1.2.0  change root namespace
+* 2013/02/18 v1.3.0  create ltsv line as dynamic
+* 2013/02/18 v1.3.1  fix comments ( add v1.3.0 ...)
+* 2013/02/18 v1.3.2  fix comments ( add v1.3.x ...)

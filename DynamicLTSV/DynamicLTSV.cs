@@ -3,12 +3,15 @@
  * 
  * dynamic LTSV parser for C#.
  * 
- * v1.2.0
+ * v1.3.2
  * 
  * release note:
  * 2013/02/09 v1.0.0  first release
  * 2013/02/13 v1.1.0  add ToLTSVString method
  * 2013/02/14 v1.2.0  change root namespace
+ * 2013/02/18 v1.3.0  create ltsv line as dynamic
+ * 2013/02/18 v1.3.1  fix comments ( add v1.3.0 ...)
+ * 2013/02/18 v1.3.2  fix comments ( add v1.3.x ...)
  */
 
 using System;
