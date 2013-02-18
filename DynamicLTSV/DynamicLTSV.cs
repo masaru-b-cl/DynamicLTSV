@@ -69,6 +69,12 @@ namespace LTSV
       return true;
     }
 
+    public override bool TrySetMember(SetMemberBinder binder, object value)
+    {
+      source[binder.Name] = value as string;
+      return true;
+    }
+
     public override bool TryInvoke(InvokeBinder binder, object[] args, out object result)
     {
       source.Clear();

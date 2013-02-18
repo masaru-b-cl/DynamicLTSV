@@ -34,6 +34,13 @@ reffer to "DynamicLTSVSample\Program.cs" file.
     ltsv(hoge: "fuga", bar: "baz");
     Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
 
+or
+
+    var ltsv = DynamicLTSV.Create();
+    ltsv.hoge = "fuga";
+    ltsv.bar = "baz";
+    Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
+
 ### Convert to LTSV string
 
     var source = new { hoge = "fuga", bar = "baz" };

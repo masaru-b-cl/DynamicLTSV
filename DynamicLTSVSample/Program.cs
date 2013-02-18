@@ -22,9 +22,15 @@ bar:baz
       Console.WriteLine(lines.Last().bar);  // baz
 
       // create LTSV line
-      var ltsv = DynamicLTSV.Create();
-      ltsv(hoge: "fuga", bar: "baz");
-      Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
+      var ltsv1 = DynamicLTSV.Create();
+      ltsv1(hoge: "fuga", bar: "baz");
+      Console.WriteLine(ltsv1.ToString()); // hoge:fuga\tbar:baz
+
+      // create LTSV line as dynamic
+      var ltsv2 = DynamicLTSV.Create();
+      ltsv2.hoge = "fuga";
+      ltsv2.bar = "baz";
+      Console.WriteLine(ltsv2.ToString()); // hoge:fuga\tbar:baz
 
       // convert to LTSV string
       var source = new { hoge = "fuga", bar = "baz" };
