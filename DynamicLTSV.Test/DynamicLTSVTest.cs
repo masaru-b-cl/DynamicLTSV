@@ -86,6 +86,14 @@ hoge:fuga");
     }
 
     [TestMethod]
+    public void インデクサから取得()
+    {
+      dynamic result = DynamicLTSV.ParseLine("label:text");
+      string label = result["label"];
+      label.Is("text");
+    }
+
+    [TestMethod]
     public void LTSVレコードの作成()
     {
       var ltsv = DynamicLTSV.Create();
@@ -101,6 +109,17 @@ hoge:fuga");
       var ltsv = DynamicLTSV.Create();
       ltsv.hoge = "fuga";
       ltsv.bar = "baz";
+
+      string line = ltsv.ToString();
+      line.Is("hoge:fuga\tbar:baz");
+    }
+
+    [TestMethod]
+    public void LTSVレコードのインデクサによる作成()
+    {
+      var ltsv = DynamicLTSV.Create();
+      ltsv["hoge"] = "fuga";
+      ltsv["bar"] = "baz";
 
       string line = ltsv.ToString();
       line.Is("hoge:fuga\tbar:baz");

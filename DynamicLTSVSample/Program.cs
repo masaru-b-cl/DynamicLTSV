@@ -12,14 +12,14 @@ namespace DynamicLTSVSample
       // parse LTSV line
       var line = DynamicLTSV.ParseLine("hoge:foo\tbar:baz\n");
       Console.WriteLine(line.hoge); // foo
-      Console.WriteLine(line.bar);  // baz
+      Console.WriteLine(line["bar"]);  // baz
 
       // parse LTSV lines
       var lines = DynamicLTSV.Parse(@"hoge:foo
 bar:baz
 ");
       Console.WriteLine(lines.First().hoge);  // foo
-      Console.WriteLine(lines.Last().bar);  // baz
+      Console.WriteLine(lines.Last()["bar"]);  // baz
 
       // create LTSV line
       var ltsv1 = DynamicLTSV.Create();
@@ -29,7 +29,7 @@ bar:baz
       // create LTSV line as dynamic
       var ltsv2 = DynamicLTSV.Create();
       ltsv2.hoge = "fuga";
-      ltsv2.bar = "baz";
+      ltsv2["bar"] = "baz";
       Console.WriteLine(ltsv2.ToString()); // hoge:fuga\tbar:baz
 
       // convert to LTSV string

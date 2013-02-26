@@ -19,14 +19,14 @@ reffer to "DynamicLTSVSample\Program.cs" file.
 
     var line = DynamicLTSV.ParseLine("hoge:foo\tbar:baz\n");
     Console.WriteLine(line.hoge); // foo
-    Console.WriteLine(line.bar);  // baz
+    Console.WriteLine(line["bar"]);  // baz
 
 ### Parse LTSV lines
     var lines = DynamicLTSV.Parse(@"hoge:foo
     bar:baz
     ");
     Console.WriteLine(lines.First().hoge);  // foo
-    Console.WriteLine(lines.Last().bar);  // baz
+    Console.WriteLine(lines.Last()["bar"]);  // baz
 
 ### Create LTSV line ( and convert to string)
 
@@ -38,7 +38,7 @@ or
 
     var ltsv = DynamicLTSV.Create();
     ltsv.hoge = "fuga";
-    ltsv.bar = "baz";
+    ltsv["bar"] = "baz";
     Console.WriteLine(ltsv.ToString()); // hoge:fuga\tbar:baz
 
 ### Convert to LTSV string
@@ -109,3 +109,4 @@ TAKANO Sho - [@masaru\_b\_cl](https://twitter.com/masaru_b_cl/)
 * 2013/02/18 v1.3.0  create ltsv line as dynamic
 * 2013/02/18 v1.3.1  fix comments ( add v1.3.0 ...)
 * 2013/02/18 v1.3.2  fix comments ( add v1.3.x ...)
+* 2013/02/27 v1.4.0  support indexer access

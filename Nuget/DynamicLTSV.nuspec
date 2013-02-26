@@ -2,12 +2,13 @@
 <package >
   <metadata>
     <id>DynamicLTSV</id>
-    <version>1.3.2</version>
+    <version>1.4.0</version>
     <title>DynamicLTSV</title>
     <authors>TAKANO Sho - @masaru_b_cl</authors>
     <owners>TAKANO Sho - @masaru_b_cl</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dynamic LTSV parser for C#.</description>
+    <releaseNotes>support indexer access.</releaseNotes>
     <language>en-US</language>
     <projectUrl>https://github.com/masaru-b-cl/DynamicLTSV</projectUrl>
     <tags>LTSV C#</tags>

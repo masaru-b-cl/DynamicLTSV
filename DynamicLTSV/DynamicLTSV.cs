@@ -3,7 +3,7 @@
  * 
  * dynamic LTSV parser for C#.
  * 
- * v1.3.2
+ * v1.4.0
  * 
  * release note:
  * 2013/02/09 v1.0.0  first release
@@ -12,6 +12,7 @@
  * 2013/02/18 v1.3.0  create ltsv line as dynamic
  * 2013/02/18 v1.3.1  fix comments ( add v1.3.0 ...)
  * 2013/02/18 v1.3.2  fix comments ( add v1.3.x ...)
+ * 2013/02/27 v1.4.0  support indexer access
  */
 
 using System;
@@ -75,6 +76,21 @@ namespace LTSV
     public override bool TrySetMember(SetMemberBinder binder, object value)
     {
       source[binder.Name] = value as string;
+      return true;
+    }
+
+    public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
+    {
+      var index = (string)indexes[0];
+      var value = source[index];
+      result = new StringMember(value);
+      return true;
+    }
+
+    public override bool TrySetIndex(SetIndexBinder binder, object[] indexes, object value)
+    {
+      var index = (string)indexes[0];
+      source[index] = value as string;
       return true;
     }
 
